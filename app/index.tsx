@@ -1,5 +1,10 @@
-import { Pressable, Text, useColorScheme, View } from 'react-native';
+/* native */
+import { useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+/* components */
+import { Button, Label } from '@/shared/components';
+/* theme */
+import { theme } from '@/shared/theme';
 
 const HomeScreen = () => {
   const insets = useSafeAreaInsets();
@@ -10,16 +15,18 @@ const HomeScreen = () => {
       style={{
         flex: 1,
         paddingTop: insets.top,
-        backgroundColor: scheme === 'dark' ? 'black' : 'white',
+        backgroundColor: scheme === 'dark' ? 'black' : theme.scheme.light.base.bg,
         alignItems: 'center',
         justifyContent: 'center',
       }}
     >
-      <Pressable>
-        <Text style={{ textAlign: 'center', color: scheme === 'dark' ? 'white' : 'black' }}>
-          Click me!
-        </Text>
-      </Pressable>
+      <Button bg="primary" aspect="fill">
+        {({ pressed }) => (
+          <Label style={{ textAlign: 'center' }} contrast disabled={pressed}>
+            Click me!
+          </Label>
+        )}
+      </Button>
     </View>
   );
 };
