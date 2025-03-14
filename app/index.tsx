@@ -1,33 +1,48 @@
 /* native */
-import { useColorScheme, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 /* components */
-import { Button, Label } from '@/shared/components';
-/* theme */
-import { theme } from '@/shared/theme';
+import { Button, Label, Panel } from '@/shared/components';
 
 const HomeScreen = () => {
   const insets = useSafeAreaInsets();
-  const scheme = useColorScheme();
 
   return (
-    <View
+    <Panel
       style={{
         flex: 1,
         paddingTop: insets.top,
-        backgroundColor: scheme === 'dark' ? 'black' : theme.scheme.light.base.bg,
         alignItems: 'center',
         justifyContent: 'center',
       }}
+      rounded={null}
+      padding={null}
     >
-      <Button bg="primary" aspect="fill">
-        {({ pressed }) => (
-          <Label style={{ textAlign: 'center' }} contrast disabled={pressed}>
-            Click me!
-          </Label>
-        )}
-      </Button>
-    </View>
+      <Panel surface>
+        <Button bg="primary" aspect="fill">
+          {({ pressed }) => (
+            <Label style={{ textAlign: 'center' }} text="primary" contrast disabled={pressed}>
+              Click me!
+            </Label>
+          )}
+        </Button>
+
+        <Button bg="secondary" aspect="mild">
+          {({ pressed }) => (
+            <Label style={{ textAlign: 'center' }} text="secondary" disabled={pressed}>
+              Click me!
+            </Label>
+          )}
+        </Button>
+
+        <Button bg="danger" aspect="plain">
+          {({ pressed }) => (
+            <Label style={{ textAlign: 'center' }} text="danger" disabled={pressed}>
+              Click me!
+            </Label>
+          )}
+        </Button>
+      </Panel>
+    </Panel>
   );
 };
 

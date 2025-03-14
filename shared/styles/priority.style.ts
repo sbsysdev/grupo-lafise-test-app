@@ -6,7 +6,7 @@ import { Aspect, Priority, Scheme, theme } from '../theme';
 export const bgPriorityStyle = (
   scheme: Scheme,
   priority: Priority,
-  surface: boolean = true
+  surface: boolean = false
 ): ViewStyle => ({
   backgroundColor: theme.scheme[scheme][priority][surface ? 'bgSurface' : 'bg'],
 });

@@ -71,10 +71,10 @@ export interface CommonFont {
 }
 
 export interface CommonSize {
-  gap?: ExtendedSize;
-  padding?: ExtendedSize;
-  rounded?: ExtendedSize;
-  borderWidth?: ExtendedSize;
+  gap?: ExtendedSize | null;
+  padding?: ExtendedSize | null;
+  rounded?: ExtendedSize | null;
+  borderWidth?: ExtendedSize | null;
 }
 
 export interface CommonPriority {
