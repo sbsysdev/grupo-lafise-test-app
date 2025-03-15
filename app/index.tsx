@@ -1,7 +1,7 @@
 /* native */
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 /* components */
-import { Button, Label, Panel } from '@/shared/components';
+import { Button, Field, Label, Panel } from '@/shared/components';
 
 const HomeScreen = () => {
   const insets = useSafeAreaInsets();
@@ -11,7 +11,6 @@ const HomeScreen = () => {
       style={{
         flex: 1,
         paddingTop: insets.top,
-        alignItems: 'center',
         justifyContent: 'center',
       }}
       rounded={null}
@@ -41,6 +40,16 @@ const HomeScreen = () => {
             </Label>
           )}
         </Button>
+
+        <Field
+          title="Password"
+          hint="checkout your email"
+          placeholder="Type your secure password..."
+          border="primary"
+          text="primary"
+          error={false}
+          disabled={false}
+        />
       </Panel>
     </Panel>
   );
